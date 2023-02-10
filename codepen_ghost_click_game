@@ -1,0 +1,70 @@
+html
+
+<h1 id="warn">Catch The Ghosts</h1>
+<div>
+  <h1 id="caught">Caught: 0</h1>
+  <h1 id="missed">Missed: 0</h1>
+</div>
+
+css
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#warn {
+  position: absolute;
+  font-family: Impact;
+  font-size: 100px;
+  color: red;
+  margin-top: 20%;
+  margin-bottom: 30%;
+  text-shadow: 2px 2px 5px white;
+}
+
+.ghost {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 100%;
+}
+
+h1 {
+  color: white;
+}
+
+
+javascript
+
+
+
+
+var caught = 0;
+var missed = 0;
+
+function spawnGhost(){
+  var newGhost = $("<img>");
+  newGhost.attr("src", "https://github.com/first-code-academy/jQueryImages/blob/master/ghost.png?raw=true");
+  newGhost.addClass("ghost");
+  newGhost.css("left", Math.random() * 100 + "%");
+  newGhost.appendTo("body");
+  
+  $(newGhost).animate({"top": "0%"}, 5000, function(){
+    missed++;
+    $("#missed").text("Missed:" + missed);
+    $(this).fadeOut(1000);
+  });
+  
+  $(newGhost).on("click", function(){
+    caught++;
+    $("#caught").text("Caught:" + caught)
+    $(this).stop();
+    $(this).fadeOut(1000);
+  });
+}
+
+$("#warn").fadeOut(3000);
+
+setInterval(spawnGhost, 1000);

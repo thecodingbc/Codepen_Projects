@@ -1,0 +1,227 @@
+html
+
+
+
+
+<h2>My Website Project</h2>
+<div class="warpper">
+  <input class="radio" id="one" name="group" type="radio" checked>
+  <input class="radio" id="two" name="group" type="radio">
+  <input class="radio" id="three" name="group" type="radio">
+  <div class="tabs">
+  <label class="tab" id="one-tab" for="one"> Website Coding</label>
+  <label class="tab" id="two-tab" for="two"> About me</label>
+  <label class="tab" id="three-tab" for="three"> Play-game</label>
+  </div>
+  
+  <div class="panels">
+    <div class="panel" id="one-panel">
+      <div class="panel-title"> Website Design</div>
+      <p> (talking about my you had the website in this area)</p>
+      <div id="percentage"> 0%</div>
+      <div id="bar">
+        <div id="progress"></div>
+      </div>
+      
+      <div id="colors">
+        <button id="red">RED</button>
+        <button id="blue">BLUE</button>
+        <button id="green">GREEN</button>
+      </div>
+      <button id="start"> START</button>
+    </div>
+    
+    <div class="panel" id="two-panel">
+      <div class="panel-title"> About the Desgnier</div>
+      <p> i AM BOCHENG, call me bc, i like coding cuz it let us make good websites and games nd ur gonna play me game now boi scroll down boi oh boi boi</p>
+    </div>
+    
+    <div class="panel" id="three-panel">
+      <div class="panel-title"> play Game</div>
+      <p> (berifly introduce the game in this area)</p>
+      <div style="position:relative;height:0;padding-bottom:117.6%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://arcade.makecode.com/---run?id=_YYaT4YcKbiU5" allowfullscreen="allowfullscreen" sandbox="allow-popups allow-forms allow-scripts allow-same-origin" frameborder="0"></iframe></div>
+    </div>
+  </div>
+ </div>
+ 
+ 
+ css
+ 
+ 
+ 
+ @import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
+body{
+  background:#CDDC39;
+  font-family: 'Arimo', sans-serif;
+}
+h2{
+  color:#000;
+  text-align:center;
+  font-size:2em;
+}
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#000;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+.panels{
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  max-width:500px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;  
+}
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#000;
+  border-top: 3px solid #000;
+}
+
+
+* {
+  font-family: 'VT323', monospace;
+}
+
+#percentage {
+  width: 100%;
+  text-align: center;
+  font-size: 3em;
+  margin-top: 300px;
+}
+
+#bar {
+  width: 500px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+
+#progress {
+  height: 100%;
+  border-radius: 25px;
+  background-color: grey;
+  width: 10%;
+}
+
+#colors {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+#colors button {
+  margin: 10px;
+  width: 15%;
+  height: 60%;
+  font-size: 1.2em
+}
+
+#red {
+  color: red;
+}
+
+#blue {
+  color: blue;
+}
+
+#green {
+  color: green;
+}
+
+#start {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 40px;
+  font-size: 1.1em;
+}
+
+
+javascript$("#red").click(function(){
+  $("#progress").css("background-color", "red")
+});
+
+$("#blue").click(function(){
+  $("#progress").css("background-color", "blue")
+});
+
+$("#green").click(function(){
+  $("#progress").css("background-color", "green")
+});
+
+
+$("#start").click(function(){
+  $("#progress").css("width", "12%")
+    .delay(1200)
+    .animate({width: "25%"}, 500)
+    .delay(1200)
+    .animate({width: "50%"}, 500)
+    .delay(1200)
+    .animate({width: "75%"}, 500)
+    .delay(1200)
+    .animate({width: "100%"}, 500);
+
+   $("#percentage").html("0%")
+    .delay(1700)
+    .queue(function(next) {
+        $(this).html("25%");
+        next();
+     })
+    .delay(1700)
+    .queue(function(next) {
+        $(this).html("50%");
+        next();
+     })
+    .delay(1700)
+    .queue(function(next) {
+        $(this).html("75%");
+        next();
+     })
+    .delay(1700)
+    .queue(function(next) {
+        $(this).html("100%");
+        next();
+     })
+})

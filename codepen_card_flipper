@@ -1,0 +1,110 @@
+html'
+
+
+
+<h1 class="right">Correct!</h1>
+<h1 class="wrong">Incorrect!</h1>
+
+
+css
+
+.card {
+  border: 10px double black;
+  width: 150px;
+  height: 200px;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  font-family: Helvetica;
+  margin: 5px;
+  float: left;
+}
+
+.open {
+  background-color: white;
+  color: red;
+}
+
+h1 {
+  display: none;
+  margin: 0;
+  position: absolute;
+  margin-top: 10%;
+  left: 30%;
+  font-size: 100px;
+  font-family: Arial;
+  text-shadow: 2px 2px black;
+}
+
+.right {
+  color: lime;
+}
+
+.wrong {
+  color: red;
+}
+
+
+javascript
+
+
+var cards = ["A","A","B","B","C","C","D","D"];
+
+var opened = [];
+
+function generateCards(){
+  for(var i = 0; i < cards.length; i++) {
+    var newCard = $("<div></div>");
+    newCard.text("?");
+    newCard.addClass("card");
+    newCard.attr("id", i);
+    newCard.appendTo("body"); 
+  }
+  
+  $(".card").on("click", function(){
+    if (!$(this).hasClass("open")) {
+      if(open.length <=1) {
+        $(this).toggleClass("open")
+        opened.push($(this).attr("id"));
+        var cardText = cards[$(this).attr("id")];
+        $(this).text(cardText);
+        if (opened.length == 2) {
+          var card1 = opened[0];
+          var card2 = opened[1];
+          if(cards[card1] == cards[card2]){
+            $(".right").show(function(){
+              $(this).fadeOut("slow");
+            });
+            opened = [];
+          } else {
+            $(".wrong").show(function(){
+              $(this).fadeOut("slow");
+          });
+            setTimeout(function() {
+              $("#" + card1).toggleClass("open");
+              $("#" + card1).text("?");
+              $("#" + card2).toggleClass("open");
+              $("#" + card2).text("?");
+              opened = [];  
+            }, 1000);
+          }
+        }
+      } 
+    }
+  });
+}
+
+function shuffle() {
+  for(var i = 0; i < 100; i++) {
+    var card1 = Math.floor(Math.random() * cards.length);
+    var card2 = Math.floor(Math.random() * cards.length);
+    var temp = cards[card1];
+    cards[card1] = cards[card2];
+    cards[card2] = temp;
+  }
+}
+
+shuffle();
+generateCards();

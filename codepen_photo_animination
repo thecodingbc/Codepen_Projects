@@ -1,0 +1,107 @@
+html
+
+
+<div id="overlay"><div>
+<div id="contanier">
+  <div class="photo"><img src="https://media4.giphy.com/media/13faydI3HDMLcc/giphy.gif?cid=ecf05e474r9hamlrrndy3fqua2bomnmukxyu0cknlyllt2vh&rid=giphy.gif&ct=s" alt="https://sonic.fandom.com/wiki/Sonic_the_Hedgehog" class="photo-image"/></div>
+  <div class="photo"><img src="https://media3.giphy.com/media/lhvyCCcFuQFKo/giphy.gif?cid=ecf05e47ylgdlmr3tybqedzylpi9ymtpqjl328c6nd9a3gv0&rid=giphy.gif&ct=s" alt="https://www.mariowiki.com/" class="photo-image"/></div>
+  <div class="photo"><img src="https://media2.giphy.com/media/H8w8fe5mGewmWSuHgs/giphy.gif?cid=ecf05e47a479fb7cjdt6hulwptwg1vm47k3jk6b0xp3uwiw8&rid=giphy.gif&ct=s" alt="https://pokemon.fandom.com/wiki/Cubone" class="photo-image"/></div>
+  <div class="photo"><img src="https://media4.giphy.com/media/FN8O5XnZXaaTg0dGbZ/giphy.gif?cid=ecf05e47y5l6z43c7499ogz52qhpr1biufmbay43ajj0y0q4&rid=giphy.gif&ct=s" alt="https://en.wikipedia.org/wiki/Roblox" class="photo-image"/></div>
+  <div class="photo"><img src="https://media4.giphy.com/media/Uu59YD62SCHkSDqzwe/giphy.gif?cid=ecf05e47t6e4ci3odpbtae850e24r54p2e5cscn0kjuc496n&rid=giphy.gif&ct=s"https://media4.giphy.com/media/Uu59YD62SCHkSDqzwe/giphy.gif?cid=ecf05e47t6e4ci3odpbtae850e24r54p2e5cscn0kjuc496n&rid=giphy.gif&ct=s alt="https://en.wikipedia.org/wiki/The_Legend_of_Zelda" class="photo-image"/></div>
+  <div class="photo"><img src="https://64.media.tumblr.com/0d7c4ed59531c64fc97d55c9f23e9e75/tumblr_paf5lckJ7u1upp723o1_500.gifv" alt="https://freegameplanet.tumblr.com/post/174944642028/krunkerio-features-fast-and-fluid-cod-style/amp" class="photo-image"/></div>
+    </div>
+  
+  
+  
+  css
+  
+  #overlay{
+  cursor:pointer;
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100px;
+  width:100%;
+  background: #834;
+  opacity:.7;
+  z-index:2000;
+  dislay:none;
+}
+
+#container{
+  width:500px;
+  postition:relative;
+  margin: 0 auto;
+  top: 50px;
+}
+
+.photo{
+  position:relative;
+  float:left;
+  height:100px;
+  width:100px;background: #fff;
+  border:120px solid #999;
+  margin: 20px
+}
+
+
+.photo-image{
+  cursor:pointer;
+  position: relative;
+  top:9px;
+  left:9px;
+  width:80px;
+  border:1px solid #321;
+  z-index: 1000;
+  opacity:0.8;
+  
+}
+
+.photo-image:hover{
+  width:200px;
+  top:-50px;
+  left:-50;
+  z-index:10001;
+  opacity:1;
+}
+
+.photo-selected{
+  cursor:default;
+  z-index:2001;
+  width:500px;
+  opacity:1;
+  top:-20px;
+  left:-200px;
+  box-shadow: 0 0 300px rgba(0, 0, 0, 0.5)
+}
+
+.photo-selected:hover{
+  width:500px;
+  top:-50px;
+  left:-50px;
+  z-index:2001;
+  opacity:1;
+  top:-20px;
+  left:-200px; 
+}
+
+
+
+javascript
+
+
+$(function() {
+  $(".photo-image").click(function(){
+    $(this).addClass("photo-selected");
+    $(this).parent().addClass("photo-x");
+    $("#overlay").show();
+  });
+  
+  $("#overlay").click(function(){
+    $(".photo-image").removeClass("photo-selected");
+    $(".photo-x").removeClass("photo-x");
+    $("#overlay").hide();
+  });
+});
+
+

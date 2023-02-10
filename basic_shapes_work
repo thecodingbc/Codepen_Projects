@@ -1,0 +1,100 @@
+html
+
+
+<h1>BOCHENG's shape project </h1>
+<p1>this project was made by bocheng </p1>
+<p2>follow the instruction to change color of each button </p2>
+<h2> shapes in  motion! </h2>
+
+<div class="shapes" id="circle"> Hover over me </div>  
+<div class="shapes" id="rectangle"> double click me </div>
+<div class="shapes" id="squares"> click me </div>  
+<div class="shapes" id="oval"> right click me </div>  
+
+ 
+
+Up Triangle - &#9650;
+Down Triangle - &#9660;
+Left Triangle - &#9664;
+Right Triangle - &#9654;
+
+
+
+
+css
+
+body {
+  font-family: cursive;
+}
+
+.shapes{
+  float: left;
+  margin-right: 50px;
+  text-algin: centre;
+  padding: 20px;
+}
+
+#circle{
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: green;
+}
+
+#square{
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+
+#rectangle{
+  width: 200px;
+  height: 100px;
+  background: red;
+}
+
+#squares{
+  width: 100px;
+  height: 100px;
+  background: blue;
+}
+
+#oval{
+  height: 100px;
+  width: 200px;
+  border-radius: 100%;
+  background: yellow;
+}
+
+
+
+.shapes{
+  float: left;
+  margin-right: 50px;
+  text-algin: centre;
+  padding: 20px;
+}
+
+
+#up{
+  height: 100px;
+  width: 200px;
+}
+
+
+javascriptdocument.getElementById("circle").onmouseover = function (){
+  event.target.style.backgroundColor = "orange";
+}
+  
+document.getElementById("rectangle").ondblclick = function (){
+  event.target.style.backgroundColor = "purple";
+}
+ 
+document.getElementById("squares").onclick = function (){
+  event.target.style.backgroundColor = "white";
+}
+  
+document.getElementById("oval").onclick = function (){
+  event.target.style.backgroundColor = "cyan";
+}
+  

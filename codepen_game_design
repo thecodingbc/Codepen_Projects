@@ -1,0 +1,261 @@
+html
+
+<title> BC game combination</title>
+
+<body>
+<div class="container">
+  <div class="navigation">
+   <header>
+     <h0>bc's game combined! :-)</h0>
+     
+     <nav>
+       <ul>
+         <li><a href="#first">Introduction</a></li>
+         <li><a href="#second">How to Play</a></li>
+         <li><a href="#third">What is aradce-maker</a></li>
+         <li><a href="#fourth">About Me</a></li>
+       </ul>
+     </nav>
+    
+     <div class="clear"></div>
+       </header>
+          <div>
+       <div>
+       <article>
+         <section>
+           <div id="first"></div>
+           <h1>Introduction</h1>
+           <p1> WELCOME upgrade gamee </p1>
+           </section>
+         
+          <section>
+           <div id="second"></div>
+            <h1>how to play</h1>
+           <p1> use W-A-S-D keys to move up down left right, try to collect all the coins before the timer runs out or you die.  </p1>
+           </section>
+           
+         <section>
+           <div id="third"></div>
+           <h3>What is aracde-maker</h3>
+           <p3> arcade maker is a website where we can make projects such as games and others using javascrit or blocks. it is almost same as SCRATCH 3.0</p3>
+         </section> 
+         
+         
+         <section>
+           <div id="fourth"></div>
+           <h4>About Me</h4>
+           <p4> i like coding </p4>
+         </section>
+         
+         
+      <div style="position:relative;height:0;padding-bottom:100%;overflow:hidden;"><iframe style="position:absolute;top:0;left:0;width:50%;height:80%;" src="https://arcade.makecode.com/---run?id=_CTrLCUFuAPi7" allowfullscreen="allowfullscreen" sandbox="allow-popups allow-forms allow-scripts allow-same-origin" frameborder="0"></iframe></div>
+         
+
+<h2> this is the second game tomato smash  </h2>
+<h2> tomato smash </h2>
+<hr>
+<div id="tomato"></div>
+<img id ="hammer" src="https://raw.githubusercontent.com/first-code-academy/jQueryImages/master/hammer.png">
+         
+<footer class="text-center">
+       <p><em> Created by coder_bc</p></em>
+    </footer>
+    </body>
+            
+            
+
+
+
+css
+
+body {
+  margin: 0;
+  background: url("https://th.bing.com/th/id/R.058fef41594d3a00b21b8c5b600cd724?rik=JLwBOovfRGIu%2bw&riu=http%3a%2f%2fbestdrumwrap.com%2fwp-content%2fuploads%2f2016%2f05%2fForest-Camo.jpg&ehk=aSKVC%2fZ7fnqTW45%2f%2bPmof0JZfKPxOrzpXprCS9LytLs%3d&risl=&pid=ImgRaw&r=0")
+}
+
+.navigation {
+  position: absoulte;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+}
+
+header {
+  padding: 1px;
+  background-color: #af0101;
+  font-family: impact;
+
+}
+
+header h0 {
+  float: right;
+}
+
+header h1 {
+  width: 30%;
+  font-size: 20px;
+  float: left;
+}
+
+nav {
+  float: left; 
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  float: left;
+  font-size:25px;
+  margin: 0 55px 0;
+}
+
+
+.clear {
+  clear: left;
+}
+    img {
+    width: 50%;
+    height: 50%;
+
+  }
+
+article, nav {
+  width: 100;
+  max-width: 1175px;
+  margin-left: auto;
+  margin-right: auto;
+}
+article h1 {
+  margin: 30px;
+  border-bottom: 1px solid;
+  font-size: 30px;
+  text-align: center;
+}
+article {
+  width: 100%;
+  max-width: 975px;
+  margin: 0, auto;
+  overflow: hidden;
+  margin-top: 30px;
+  background-color: #979997;
+  border: 2px outset;
+  border-color: #979997; 
+}
+article section h2 {
+  text-align: center;
+  padding: 20px;
+}
+
+
+footer {
+  background-color: #515050;
+  padding-bottom: 5px;
+  height: 30px;
+}
+.footer-img {
+  width: 10px;
+  height: 10px;
+  margin-top: 20px; 
+
+}
+footer h4 {
+  text-align: center;
+}
+.right {
+  float: right;
+}
+.center {
+  display: block;
+  margin: auto;
+  padding: 15px;
+}
+.text-center {
+  text-align: center;
+}
+ 
+
+  
+  
+h2 {
+  text-align: center;
+  color: tomato;
+  text-shadow: 4px 4px 2x grey;
+  font-family: handwriting;
+  font-size: 40px;
+}
+
+#tomato {
+  position: absolute;
+}
+
+.fresh {
+  padding: 60px;
+  width: 100px;
+  height: 100px;
+}
+
+
+.smashed {
+  padding: 0px;
+  width: 200px;
+  height: 200px;
+}
+
+
+
+#hammer {
+  position: absolute;
+  width: auto;
+  height:90px;
+}
+
+
+
+
+javascript
+
+
+const HEIGHT = $("#hammer").height();
+const fresh = new Image();
+fresh.src = "https://raw.githubusercontent.com/first-code-academy/jQueryImages/master/fresh.png";
+$(fresh).addClass("fresh");
+
+const smashed = new Image();
+smashed.src = "https://raw.githubusercontent.com/first-code-academy/jQueryImages/master/smashed.png";
+$(smashed).addClass("smashed");
+
+
+$(document).mousemove(function(event){
+  $("#hammer").css("left", event.pageX + 10)
+  $("#hammer").css("top", event.pageY - HEIGHT / 2);
+});
+
+$(document).on("mousedown", function(){
+  $('#hammer').css("transform", "rotate(-20deg)")
+});
+
+$(document).on("mouseup", function(){
+  $('#hammer').css("transform", "rotate(20deg)")
+});
+
+$("#tomato").click(function() {
+  $(this).find(".fresh").remove();
+  $(this).append(smashed);
+});
+
+function restoreTomato(){
+  var tomato = $("#tomato");
+  if(tomato.has(".smashed")){
+    tomato.find(".smashed").remove();
+    tomato.append(fresh);
+    
+  }
+  var newX = Math.round(Math.random() * 40)+20; 
+  var newY = Math.round(Math.random() * 40)+20;
+  tomato.css("left", newX + "%");
+  tomato.css("left", newY + "%");
+}
+
+setInterval(restoreTomato, 1000);
